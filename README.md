@@ -23,9 +23,6 @@ The purpose of this repository is to document my learning journey, strengthen my
 - Stored Procedures
 - User-Defined Functions
 - Triggers
-- Transactions
-- Conditional Statements and Loops
-- Variables and Control-of-Flow Statements
 
 ## Language
 - Transact-SQL (T-SQL)
