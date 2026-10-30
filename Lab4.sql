@@ -32,15 +32,15 @@ DROP COLUMN CITY;
 
 --6. Rename column actno to ano.
 
-SP_RENAME 'DEPOSIT.ACTNO','ANO';
+EXEC SP_RENAME 'DEPOSIT.ACTNO' , 'ANO';
 
 --7. Rename column bname to branch_name.
 
-SP_RENAME 'DEPOSIT.BNAME','BRANCH_NAME';
+EXEC SP_RENAME 'DEPOSIT.BNAME' , 'BRANCH_NAME';
 
 --8. Rename table DEPOSIT to DEPOSIT_DETAIL.
 
-SP_RENAME 'DEPOSIT','DEPOSIT_DETAIL';
+EXEC SP_RENAME 'DEPOSIT' , 'DEPOSIT_DETAIL';
 
 --9. Add column ifsc_code varchar(15).
 
@@ -55,7 +55,7 @@ ALTER COLUMN BRANCH_NAME VARCHAR(30);
 --Part – B:
 --11. Rename column adate to aopendate.
 
-SP_RENAME 'DEPOSIT_DETAIL.ADATE','AOPENDATE'
+EXEC SP_RENAME 'DEPOSIT_DETAIL.ADATE' , 'AOPENDATE';
 
 --12. Delete column aopendate from DEPOSIT_DETAIL table.
 
@@ -64,7 +64,7 @@ DROP COLUMN AOPENDATE;
 
 --13. Rename column cname to customer_name.
 
-SP_RENAME 'DEPOSIT_DETAIL.CNAME','CUSTOMER_NAME'
+EXEC SP_RENAME 'DEPOSIT_DETAIL.CNAME' , 'CUSTOMER_NAME'
 
 --14. Add column country varchar(20).
 
@@ -89,7 +89,7 @@ DROP COLUMN ACCOUNT_TYPE;
 
 --18. Rename column amount to balance.
 
-SP_RENAME 'DEPOSIT_DETAIL.AMOUNT','BALANCE';
+EXEC SP_RENAME 'DEPOSIT_DETAIL.AMOUNT' , 'BALANCE';
 
 --19. Add column status varchar(10).
 
@@ -98,7 +98,7 @@ ADD STATUS VARCHAR(10);
 
 --20. Change table name deposit_detail to bank_deposit.
 
-SP_RENAME 'DEPOSIT_DETAIL','BANK_DEPOSIT'
+EXEC SP_RENAME 'DEPOSIT_DETAIL' , 'BANK_DEPOSIT';
 
 --From the table DEPOSIT perform the following queries:
 
@@ -136,7 +136,7 @@ WHERE BRANCH_NAME IN ('BEDI','MADHAPAR');
 --6. Delete all the accounts whose account branch is NULL.
 
 DELETE FROM BANK_DEPOSIT
-WHERE BRANCH_NAME IS NULL
+WHERE BRANCH_NAME IS NULL;
 
 --7. Delete all the accounts details where amount is 7000 and name is CHARMI and branch is SHITAL PARK
 
@@ -166,13 +166,13 @@ FROM STUDENT;
 --11. Delete all the students whose stdid is greater than 105.
 
 DELETE FROM STUDENT
-WHERE STDID > 105
+WHERE STDID > 105;
 
 --12. Delete the records whose branch is NULL and sname is not NULL.
 
 DELETE FROM STUDENT
 WHERE BRANCH IS NULL
-AND SNAME IS NULL;
+AND SNAME IS NOT NULL;
 
 --13. Delete the records whose SPI is less than 9 and city is RAJKOT.
 
@@ -183,7 +183,7 @@ AND CITY = 'RAJKOT';
 --14. Delete the records whose branch name is not empty.
 
 DELETE FROM STUDENT
-WHERE NOT BRANCH IS NULL;
+WHERE BRANCH IS NOT NULL;
 
 --15. Delete all the records of STUDENT table. (Use TRUNCATE) 
 
