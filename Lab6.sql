@@ -197,8 +197,40 @@ AND CITY LIKE '%AR';
 
 SELECT *
 FROM EMPLOYEE
-WHERE FIRSTNAME LIKE '%[A,E,I,O,U
-'
+WHERE FIRSTNAME LIKE '%[A,E,I,O,U]'
+AND DEPARTMENT LIKE '[A,E,I,O,U]%'
+AND (SALARY LIKE '1[0-4]___.__'
+OR SALARY LIKE '15000');
 
 --27. Display employees whose LASTNAME contains ‘A’ at least twice, gender is male, and SALARY is not equal
 --to 14000. 
+
+SELECT *
+FROM EMPLOYEE
+WHERE LASTNAME LIKE '%A%A%';
+
+--28. Display employees whose FIRSTNAME second character is vowel and LASTNAME ends with ‘R’ and
+--SALARY less than 12000.
+
+SELECT *
+FROM EMPLOYEE
+WHERE FIRSTNAME LIKE '_[A,E,I,O,U]%'
+AND LASTNAME LIKE '%R';
+
+--29. Display employees whose CITY is NOT NULL and FIRSTNAME does not start with vowel and DEPARTMENT
+--not in (‘HR’, ‘IT’).
+
+SELECT *
+FROM EMPLOYEE
+WHERE CITY LIKE '%'
+AND FIRSTNAME LIKE '[^A,E,I,O,U]%'
+AND DEPARTMENT NOT IN ('HR','IT');
+
+--30. Display employees whose CITY is not NULL, FIRSTNAME ends with vowels, and DEPARTMENT is neither
+--‘HR’ nor ‘IT’. 
+
+SELECT *
+FROM EMPLOYEE
+WHERE CITY LIKE '%'
+AND FIRSTNAME LIKE '%[A,E,I,O,U]'
+AND DEPARTMENT NOT IN ('HR','IT');
